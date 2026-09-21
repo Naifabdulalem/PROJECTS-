@@ -103,7 +103,7 @@ result.dnssec_valid = await validate_dnssec(domain, resolver)
          **DNSSEC imports added to resolver.py.**   
 
 
-![Lookup 4](images/lookup4.png) 
+![Lookup 4](images/lookup4.png)
 
     The validate_dnssec() function using dns.dnssec.validate().
 
