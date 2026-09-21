@@ -54,6 +54,7 @@ When I first tested the cryptography functionality, the project did not have the
 **uv add cryptography** 
 
 After installing it, I checked the installed version and confirmed that cryptography 50.0.1 was available. I also confirmed that the dnspython DNSSEC module was available.
+
 ![Lookup 1](images/lookup1.png)
 
 **6. Testing the Raw DNSSEC Response** 
