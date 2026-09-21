@@ -60,7 +60,7 @@ After installing it, I checked the installed version and confirmed that cryptogr
 
 Before changing the whole project, I created a temporary DNSSEC test so I could see what the DNS server was actually returning. The test showed the normal A records and also showed an RRSIG for the A record. In a later test I also inspected the DNSKEY and RRSIG(DNSKEY) records.
 
-![[lookup2.png]]
+![Lookup 1](images/lookup2.png)
 
 
 **7. Testing Cryptographic Validation**
@@ -97,12 +97,12 @@ import dns.flags
 dnssec_valid: bool = False
 
 result.dnssec_valid = await validate_dnssec(domain, resolver)
-![[lookup3.png]]
+![Lookup 1](images/lookup3.png)
 
          **DNSSEC imports added to resolver.py.**   
 
 
-![[lookup 4.png]]
+![Lookup 1](images/lookup4.png)
 
     The validate_dnssec() function using dns.dnssec.validate().
 
@@ -115,7 +115,7 @@ if result.dnssec_valid:
 console.print("[green]DNSSEC: VALID ✓[/green]")
 
 
-![[lookup5.png]]
+![Lookup 1](images/lookup5.png)
 
 
         output.py updated to display the DNSSEC validation result.
@@ -125,7 +125,7 @@ console.print("[green]DNSSEC: VALID ✓[/green]")
 
 I faced a few small problems during the implementation. First, I placed the DNSSEC resolver configuration in the wrong place and corrected it so the resolver was created before calling use_edns(). Second, cryptography was not installed, so I added it with uv. Third, I had a few Python indentation errors while integrating the code. For example, output.py initially gave an IndentationError because the line after the if statement was not indented correctly.
 
-![[lookup6.png]]
+![Lookup 1](images/lookup6.png)
 
 
          IndentationError encountered while adding the DNSSEC output.
@@ -135,7 +135,7 @@ I faced a few small problems during the implementation. First, I placed the DNSS
 
 After fixing the errors, I ran the actual DNS lookup command against cloudflare.com. The program returned the A records and then displayed DNSSEC: VALID ✓. This confirmed that the DNSSEC validation feature was working in the real project
 
-![[lookup 7.png]]
+![Lookup 1](images/lookup7.png)
 
 
            Final successful test showing DNS records and DNSSEC: VALID ✓.
